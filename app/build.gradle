@@ -1,15 +1,17 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
-    compileSdkVersion 28
+    namespace = 'com.navasgroup.noamp'
+    compileSdkVersion 35
     defaultConfig {
         applicationId "com.navasgroup.noamp"
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion 21
+        targetSdkVersion 35
         versionCode 10
         versionName "1.70"
-        setProperty("archivesBaseName", "NoAMP-$versionName")
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -17,15 +19,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    // Robolectric
-    testImplementation "org.robolectric:robolectric:3.2.2"
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test:rules:1.6.1'
+    testImplementation 'junit:junit:4.13.2'
+    // testImplementation "org.robolectric:robolectric:4.10"
+}
+
+android.applicationVariants.all { variant ->
+    variant.outputs.all { output ->
+        def newApkName = "NoAMP-${variant.versionName}.apk"
+        outputFileName = newApkName
+    }
 }
