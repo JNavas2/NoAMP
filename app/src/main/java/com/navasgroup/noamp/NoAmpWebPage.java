@@ -11,7 +11,6 @@ public class NoAmpWebPage extends Activity {
     private static final String TAG = "NoAMP";
     // regex to match Google AMP URL prefix
     private static final String AMP = "^http(s)?://(www\\.)?google.com/amp/(s/)?";
-//    private static final String URBANDICT = "^http(s)?://(www\\.)?urbandictionary.com/(.)+";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,7 +18,11 @@ public class NoAmpWebPage extends Activity {
         String sharedText = getIntent().getStringExtra(Intent.EXTRA_TEXT);  // get URL
         Log.i(TAG, "EXTRA_TEXT: \"" + sharedText + "\"");
         if (sharedText != null) {
-			String newText = convertAMP(sharedText);
+            String newText = convertAMP(sharedText);
+
+            // Show a Toast with the converted URL
+            Toast.makeText(this, "NoAMP: " + newText, Toast.LENGTH_LONG).show();
+
             // parse and launch URL
             Log.i(TAG, "non-AMP: \"" + newText + "\"");
             Uri url = Uri.parse(newText);
@@ -28,7 +31,7 @@ public class NoAmpWebPage extends Activity {
                 startActivity(intent);
             } else {
                 Log.w(TAG, "Failed to start web browser activity!");
-                Toast.makeText(this, "Please install a web browser",  Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please install a web browser", Toast.LENGTH_LONG).show();
             }
         }
         finish();   // i'm done
@@ -36,15 +39,23 @@ public class NoAmpWebPage extends Activity {
 
     // CONVERT AMP URL INTO NON-AMP URL (ALWAYS REGRESSION TEST!)
     static public String convertAMP(String url) {
-        // convert AMP to non-AMP
-		String fix = url.replaceFirst(AMP, "http://");
-		// decode then selective encode for websites that don't parse encoded properly
-		String dec = Uri.decode(fix);// decode
-// workaround for urbandictionary.com
-// 		String enc = Uri.encode(dec, ":/?=&");
-//		if (enc.matches(URBANDICT)) {
-//			enc = enc.replaceFirst("&amp=true$", "");     // strip AMP parameter
-//		}
-		return dec;
+        // 1. Handle Google AMP cache URLs
+        String fix = url.replaceFirst(AMP, "http://");
+
+        // 2. Remove "/amp/" after the domain (e.g., /amp/news/... → /news/...)
+        fix = fix.replaceFirst("://([^/]+)/amp/", "://$1/");
+
+        // 3. Remove trailing "/amp" at the end of the path (e.g., /something/amp → /something)
+        fix = fix.replaceFirst("/amp$", "");
+
+        // 4. Remove trailing "/amp/" at the end (e.g., /something/amp/ → /something/)
+        fix = fix.replaceFirst("/amp/$", "/");
+
+        // 5. Optionally, remove AMP query parameters (e.g., ?amp=1)
+        fix = fix.replaceFirst("[?&]amp=1", "");
+
+        // Decode the URL (optional, as in your original code)
+        String dec = Uri.decode(fix);
+        return dec;
     }
 }
