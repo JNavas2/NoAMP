@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">NoAMP</string>
-    <string name="AppHelp"><b>Open AMP web page without AMP</b>\n\nWhen viewing a Google AMP web page in Chrome, use <b>Share</b> action and select this app to open that web page without Google AMP (using the default browser, not necessarily the same browser).\n\nThis works best on a page that Google has converted to AMP on the fly from a <i>non-AMP host</i> (e.g., mobile.nytimes.com, www.foxnews.com). <i>Hosted</i> AMP pages (e.g., amp.usatoday.com) cannot be directly converted to equivalent non-AMP pages.\n\n<b>Please</b>: If you encounter a case where this app does not work properly, instead of giving it a low rating, send us details (URL, browser, Android version, device) by Feedback, and we will do our best to fix it.\n\n<b>Disclaimers</b>: Use at your own risk.\nThis app is not affiliated with Google.</string>
+    <string name="Subhead"><b>Open AMP web page without AMP</b></string>
+    <string name="AppHelp1">When viewing an AMP webpage (e.g., in Chrome), use <b>Share</b> action and select this app to open that webpage without AMP (using the default browser, not necessarily the same browser).</string>
+    <string name="AppHelp2">This works best on a page that Google has converted to AMP on the fly from a <i>non-AMP host</i> (e.g., mobile.nytimes.com). <i>Hosted</i> AMP pages (e.g., amp.usatoday.com) cannot be directly converted to equivalent non-AMP pages.</string>
+    <string name="Support"><b>Support</b>: If you encounter a case where this app does not work properly, instead of giving it a low rating, use <b>Help</b> to open an Issue and give us details (URL, browser, Android version, device) and we will do our best to fix it.</string>
+    <string name="Privacy"><b>Privacy:</b> This app does not collect, store, or share any personal or browsing data, except for opening a no AMP page when you request it.</string>
+    <string name="Disclaimers"><b>Disclaimers</b>: Use at your own risk.\nNot affiliated with or endorsed by Google.</string>
+    <string name="close">Close</string>
+    <string name="help">Help</string>
 </resources>
