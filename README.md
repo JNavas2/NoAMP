@@ -38,6 +38,11 @@ NoAMP removes the `/amp/` segment from the URL, allowing you to easily view the 
 
 For support, bug reports, or feature requests, please open an **[Issue](https://github.com/JNavas2/NoAMP/issues)**.
 
+## Privacy
+
+- This app does not collect, store, or transmit any personal or browsing data, except for opening a no AMP page when you request it.
+- No tracking, no analytics, no ads, open source.
+
 ## License
 
 This project is licensed under the **[MIT License](https://github.com/JNavas2/NoAMP/blob/main/LICENSE.md)**.
