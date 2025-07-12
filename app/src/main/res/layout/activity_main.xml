@@ -25,51 +25,59 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/Subhead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/Subhead"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:id="@+id/Subhead" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/AppHelp1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_marginTop="8dp"
-                android:id="@+id/textView1" />
+                android:layout_marginTop="8dp" />
 
             <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/AppHelp2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_marginTop="4dp"
-                android:id="@+id/textView2" />
+                android:layout_marginTop="4dp" />
 
             <TextView
+                android:id="@+id/WhatsNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/WhatsNew"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/Support"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/Support"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_marginTop="8dp"
-                android:id="@+id/Support" />
+                android:layout_marginTop="8dp" />
 
             <TextView
+                android:id="@+id/Privacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/Privacy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_marginTop="8dp"
-                android:id="@+id/Privacy" />
+                android:layout_marginTop="8dp" />
 
             <TextView
-                android:text="@string/Disclaimers"
+                android:id="@+id/Disclaimers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/Disclaimers"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_marginTop="8dp"
-                android:id="@+id/Disclaimers" />
+                android:layout_marginTop="8dp" />
 
         </LinearLayout>
     </ScrollView>
@@ -80,19 +88,32 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
         <Button
             android:id="@+id/closeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/close"
-            android:layout_marginEnd="24dp"/>
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/testButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp" />
 
         <Button
             android:id="@+id/helpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/help"/>
+            android:text="@string/help"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
+
 </RelativeLayout>

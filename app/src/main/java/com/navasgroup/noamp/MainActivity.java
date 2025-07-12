@@ -20,6 +20,18 @@ public class MainActivity extends AppCompatActivity {
         Button closeButton = findViewById(R.id.closeButton);
         closeButton.setOnClickListener(v -> finish());
 
+        // --- Test button: opens the AMPpage URL in browser ---
+        Button testButton = findViewById(R.id.testButton);
+        testButton.setOnClickListener(v -> {
+            String url = getString(R.string.AMPpage); // Use your resource string
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Toast.makeText(MainActivity.this, "No browser found to open Test URL.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         // --- Help button: opens the README in browser ---
         Button helpButton = findViewById(R.id.helpButton);
         helpButton.setOnClickListener(v -> {

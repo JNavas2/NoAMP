@@ -37,24 +37,21 @@ public class NoAmpWebPage extends Activity {
         finish();   // i'm done
     }
 
-    // CONVERT AMP URL INTO NON-AMP URL (ALWAYS REGRESSION TEST!)
+    // CONVERT AMP URL INTO NON-AMP URL
     static public String convertAMP(String url) {
         // 1. Handle Google AMP cache URLs
         String fix = url.replaceFirst(AMP, "http://");
 
-        // 2. Remove "/amp/" after the domain (e.g., /amp/news/... → /news/...)
-        fix = fix.replaceFirst("://([^/]+)/amp/", "://$1/");
+        // 2. Remove all '/amp/' segments in the path
+        fix = fix.replaceAll("/amp/", "/");
 
-        // 3. Remove trailing "/amp" at the end of the path (e.g., /something/amp → /something)
-        fix = fix.replaceFirst("/amp$", "");
+        // 3. Remove trailing '/amp' or '/amp/' at the end of the path
+        fix = fix.replaceAll("/amp/?$", "/");
 
-        // 4. Remove trailing "/amp/" at the end (e.g., /something/amp/ → /something/)
-        fix = fix.replaceFirst("/amp/$", "/");
-
-        // 5. Optionally, remove AMP query parameters (e.g., ?amp=1)
+        // 4. Optionally, remove AMP query parameters (e.g., ?amp=1)
         fix = fix.replaceFirst("[?&]amp=1", "");
 
-        // Decode the URL (optional, as in your original code)
+        // Decode the URL
         String dec = Uri.decode(fix);
         return dec;
     }

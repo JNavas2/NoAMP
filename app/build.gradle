@@ -9,8 +9,8 @@ android {
         applicationId "com.navasgroup.noamp"
         minSdkVersion 21
         targetSdkVersion 36
-        versionCode 13
-        versionName "2.00"
+        versionCode 14
+        versionName "2.10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
