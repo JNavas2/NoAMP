@@ -4,13 +4,13 @@ plugins {
 
 android {
     namespace = 'com.navasgroup.noamp'
-    compileSdkVersion 35
+    compileSdkVersion 36
     defaultConfig {
         applicationId "com.navasgroup.noamp"
         minSdkVersion 21
-        targetSdkVersion 35
-        versionCode 12
-        versionName "1.80"
+        targetSdkVersion 36
+        versionCode 13
+        versionName "2.00"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -17,7 +17,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:padding="16dp"
         android:layout_above="@id/bottomButtonBar">
 
         <LinearLayout
@@ -45,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:id="@+id/textView2" />
 
             <TextView
